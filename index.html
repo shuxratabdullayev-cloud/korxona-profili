@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Korxona Profili - FAXR MADAD KONSALT</title>
+    <style>
+        :root {
+            --primary: #1e40af;
+            /* Royal Blue */
+            --secondary: #64748b;
+            /* Slate Gray */
+            --bg: #f8fafc;
+            --paper: #ffffff;
+            --border: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg);
+            color: #1e293b;
+            margin: 0;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--paper);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        /* HEADER & BRANDING */
+        header {
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        h1 {
+            color: var(--primary);
+            margin: 0;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .brand-sub {
+            color: var(--secondary);
+            font-weight: 500;
+            margin-top: 5px;
+        }
+
+        .author-info {
+            text-align: right;
+            font-size: 0.85rem;
+            color: var(--secondary);
+            font-style: italic;
+        }
+
+        /* SECTIONS */
+        .section-title {
+            background: #f1f5f9;
+            padding: 10px 15px;
+            border-left: 4px solid var(--primary);
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #475569;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        /* TABLES */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th,
+        td {
+            border: 1px solid var(--border);
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background: #f8fafc;
+            font-weight: 600;
+        }
+
+        .btn-sm {
+            padding: 4px 8px;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+
+        .btn-danger {
+            background: #fee2e2;
+            color: #dc2626;
+            border: 1px solid #fecaca;
+        }
+
+        .btn-add {
+            margin-top: 10px;
+            background: #dbeafe;
+            color: var(--primary);
+            border: 1px solid #bfdbfe;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* ACTION BAR */
+        .action-bar {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 15px;
+            justify-content: flex-end;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 6px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+        }
+
+        .btn-print {
+            background: #334155;
+            color: white;
+        }
+
+        .btn-print:hover {
+            background: #1e293b;
+        }
+
+        /* PRINT STYLES */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+                padding: 0;
+                margin: 0;
+            }
+
+            .no-print,
+            .btn-add,
+            .btn-danger {
+                display: none !important;
+            }
+
+            input,
+            select,
+            textarea {
+                border: none;
+                padding: 0;
+                background: transparent;
+                /* Appearance adjustment for print */
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+            }
+
+            /* For select elements, we might want to just show the selected text, 
+               but standard print often keeps the dropdown arrow. 
+               A robust solution is JS replacement, but for simplicity we rely on CSS. */
+
+            .section-title {
+                border-left: none;
+                border-bottom: 2px solid #000;
+                padding-left: 0;
+                color: #000;
+            }
+
+            header {
+                border-bottom: 2px solid #000;
+            }
+
+            h1 {
+                color: #000;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <div>
+                <h1>KORXONA PASPORTI</h1>
+                <div class="brand-sub">FAXR MADAD KONSALT</div>
+            </div>
+            <div class="author-info">
+                Muallif: Suxrat Abdullaev<br>
+                Buxgalteriya va Soliq hisobi
+            </div>
+        </header>
+
+        <form id="profileForm" onsubmit="event.preventDefault(); saveData();">
+
+            <!-- 1. UMUMIY MA'LUMOTLAR -->
+            <div class="section-title">1. Umumiy Ma'lumotlar</div>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Korxona To'liq Nomi</label>
+                    <input type="text" id="company_name" placeholder="Masalan: MCHJ &quot;AVECO TRADE&quot;">
+                </div>
+                <div class="form-group">
+                    <label>STIR (INN)</label>
+                    <input type="number" id="company_inn" placeholder="9 xonalik son">
+                </div>
+                <div class="form-group" style="grid-column: span 2;">
+                    <label>Yuridik Manzil</label>
+                    <input type="text" id="company_address" placeholder="Shahar, Tuman, Ko'cha, Uy">
+                </div>
+                <div class="form-group">
+                    <label>Asosiy Faoliyat Turi</label>
+                    <input type="text" id="activity_main" placeholder="Masalan: Savdo">
+                </div>
+                <div class="form-group">
+                    <label>Qo'shimcha Faoliyat</label>
+                    <input type="text" id="activity_extra" placeholder="Masalan: Xizmat ko'rsatish">
+                </div>
+                <div class="form-group">
+                    <label>OKED Kodi</label>
+                    <input type="text" id="company_oked">
+                </div>
+                <div class="form-group">
+                    <label>Ro'yxatdan o'tgan sana</label>
+                    <input type="date" id="reg_date">
+                </div>
+            </div>
+
+            <!-- 2. USTAV KAPITALI -->
+            <div class="section-title">2. Ustav Kapitali va Ta'sischilar</div>
+            <div class="form-group">
+                <label>Jami Ustav Fondi (So'm)</label>
+                <input type="text" id="total_capital" readonly style="font-weight:bold; background:#f1f5f9;">
+            </div>
+
+            <table id="foundersTable">
+                <thead>
+                    <tr>
+                        <th width="40%">Ta'sischi (F.I.Sh / Nom)</th>
+                        <th width="20%">Turi</th>
+                        <th width="15%">Ulushi (%)</th>
+                        <th width="20%">Summasi</th>
+                        <th class="no-print" width="5%"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- JS Rows -->
+                </tbody>
+            </table>
+            <button type="button" class="btn-add no-print" onclick="addFounder()">+ Ta'sischi Qo'shish</button>
+
+            <!-- 3. BANK REKVIZITLARI -->
+            <div class="section-title">3. Bank Rekvizitlari</div>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Xizmat Ko'rsatuvchi Bank</label>
+                    <input type="text" id="bank_name" placeholder="Masalan: ATB &quot;Kapitalbank&quot;">
+                </div>
+                <div class="form-group">
+                    <label>Bank MFO</label>
+                    <input type="text" id="bank_mfo" placeholder="5 xonalik kod">
+                </div>
+                <div class="form-group" style="grid-column: span 2;">
+                    <label>Asosiy Hisob Raqam (20208...)</label>
+                    <input type="text" id="bank_account" placeholder="20 ta raqam">
+                </div>
+            </div>
+
+            <!-- 4. RAHBARIYAT -->
+            <div class="section-title">4. Rahbariyat va Mas'ullar</div>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Direktor (F.I.Sh)</label>
+                    <input type="text" id="director_name">
+                </div>
+                <div class="form-group">
+                    <label>Telefon</label>
+                    <input type="text" id="director_phone">
+                </div>
+
+                <div class="form-group">
+                    <label>Bosh Buxgalter</label>
+                    <select id="accountant_type" onchange="toggleAccountantField()">
+                        <option value="director">Direktorning O'zi</option>
+                        <option value="staff">Alohida Shtat Xodimi</option>
+                        <option value="outsource">Autsorsing Firma</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Buxgalter F.I.Sh / Firma Nomi</label>
+                    <input type="text" id="accountant_name" disabled>
+                </div>
+
+                <div class="form-group">
+                    <label>Kassir</label>
+                    <input type="text" id="cashier_name">
+                </div>
+            </div>
+
+            <!-- 5. HISOB SIYOSATI -->
+            <div class="section-title">5. Hisob Siyosati va Tartib</div>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Soliq Rejimi</label>
+                    <select id="tax_regime">
+                        <option value="aylanma">Aylanmadan Soliq (4%)</option>
+                        <option value="nds">QQS va Foyda Solig'i</option>
+                        <option value="fixed">Qat'iy Belgilangan Soliq</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>QQS To'lovchisi?</label>
+                    <select id="is_vat">
+                        <option value="no">Yo'q</option>
+                        <option value="yes">Ha (12%)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Ish Tartibi</label>
+                    <select id="work_schedule">
+                        <option value="5">5 kunlik ish haftasi</option>
+                        <option value="6">6 kunlik ish haftasi</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Hisobot Topshirish Sanasi</label>
+                    <input type="text" id="report_deadline" placeholder="Masalan: Har oyning 15-sanasigacha">
+                </div>
+                <div class="form-group">
+                    <label>Soliq To'lash Sanasi</label>
+                    <input type="text" id="tax_deadline" placeholder="Masalan: Har oyning 20-sanasigacha">
+                </div>
+                <div class="form-group">
+                    <label>Oylik To'lash Sanasi</label>
+                    <input type="text" id="salary_date" placeholder="Masalan: Keyingi oyning 5-sanasi">
+                </div>
+            </div>
+
+            <!-- ACTIONS -->
+            <div class="action-bar no-print">
+                <button type="submit" class="btn btn-primary">
+                    💾 Saqlash
+                </button>
+                <button type="button" class="btn btn-print" onclick="window.print()">
+                    🖨️ Chop Etish
+                </button>
+            </div>
+
+        </form>
+    </div>
+
+    <script>
+        // --- LOGIC ---
+        function toggleAccountantField() {
+            const type = document.getElementById('accountant_type').value;
+            const input = document.getElementById('accountant_name');
+            if (type === 'director') {
+                input.value = document.getElementById('director_name').value;
+                input.disabled = true;
+            } else {
+                input.disabled = false;
+                if (input.value === document.getElementById('director_name').value) input.value = '';
+            }
+        }
+
+        // FOUNDERS LOGIC
+        function addFounder(name = '', type = 'physical', percent = '', sum = '') {
+            const tbody = document.querySelector('#foundersTable tbody');
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td><input type="text" value="${name}" class="f_name" placeholder="F.I.Sh"></td>
+                <td>
+                    <select class="f_type">
+                        <option value="physical" ${type === 'physical' ? 'selected' : ''}>Jismoniy Shaxs</option>
+                        <option value="legal" ${type === 'legal' ? 'selected' : ''}>Yuridik Shaxs</option>
+                    </select>
+                </td>
+                <td><input type="number" value="${percent}" class="f_percent" oninput="calcTotal()" placeholder="%"></td>
+                <td><input type="number" value="${sum}" class="f_sum" oninput="calcTotal()" placeholder="So'm"></td>
+                <td class="no-print">
+                    <button type="button" class="btn-sm btn-danger" onclick="this.closest('tr').remove(); calcTotal()">x</button>
+                </td>
+            `;
+            tbody.appendChild(row);
+        }
+
+        function calcTotal() {
+            let total = 0;
+            document.querySelectorAll('.f_sum').forEach(input => {
+                total += Number(input.value) || 0;
+            });
+            document.getElementById('total_capital').value = total.toLocaleString() + " so'm";
+        }
+
+        // STORAGE LOGIC
+        function saveData() {
+            const data = {};
+            // Inputs
+            document.querySelectorAll('input:not(.f_name):not(.f_percent):not(.f_sum), select:not(.f_type), textarea').forEach(el => {
+                if (el.id) data[el.id] = el.value;
+            });
+
+            // Founders
+            data.founders = [];
+            document.querySelectorAll('#foundersTable tbody tr').forEach(row => {
+                data.founders.push({
+                    name: row.querySelector('.f_name').value,
+                    type: row.querySelector('.f_type').value,
+                    percent: row.querySelector('.f_percent').value,
+                    sum: row.querySelector('.f_sum').value
+                });
+            });
+
+            localStorage.setItem('company_profile', JSON.stringify(data));
+
+            // Visual feedback
+            const btn = document.querySelector('.btn-primary');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = "✅ Saqlandi!";
+            setTimeout(() => btn.innerHTML = originalText, 2000);
+        }
+
+        function loadData() {
+            const raw = localStorage.getItem('company_profile');
+            if (!raw) {
+                // Default placeholder row
+                addFounder();
+                return;
+            }
+
+            const data = JSON.parse(raw);
+
+            // Inputs
+            for (let key in data) {
+                if (key === 'founders') continue;
+                const el = document.getElementById(key);
+                if (el) el.value = data[key];
+            }
+
+            // Founders
+            const tbody = document.querySelector('#foundersTable tbody');
+            tbody.innerHTML = '';
+            if (data.founders && data.founders.length > 0) {
+                data.founders.forEach(f => addFounder(f.name, f.type, f.percent, f.sum));
+            } else {
+                addFounder();
+            }
+            calcTotal();
+            toggleAccountantField(); // Update state based on loaded value
+        }
+
+        // INIT
+        window.addEventListener('DOMContentLoaded', loadData);
+
+    </script>
+</body>
+
+</html>
